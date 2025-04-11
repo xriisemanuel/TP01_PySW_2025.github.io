@@ -38,14 +38,15 @@ body {
   }
 
   .pricing-header h1 {
+    margin-top: 3%;
     font-size: 36px;
-    color: #333;
-    margin-bottom: 15px;
+    color: #c9e42f;
+
   }
 
   .pricing-header p {
     font-size: 18px;
-    color: #666;
+    color: #c6f325;
   }
 
   /* Toggle de plan */
@@ -121,12 +122,13 @@ body {
     gap: 30px;
     max-width: 1200px;
     /* Limita el ancho máximo de las tarjetas */
-    margin: 0 auto;
+    margin-bottom: 5%;
     /* Centra las tarjetas dentro del contenedor */
   }
 
   .pricing-card {
-    color: #fffb01;
+    color: #303004;
+    font-size: x-large;
     border: 1px solid #fffb0a;
     background-color: rgb(82, 109, 29);
     border-radius: 12px;
@@ -140,7 +142,7 @@ body {
   }
 
   .pricing-card--featured {
-    border: 2px solid #4a6cf7;
+    border: 2px solid #16a3ad;
     position: relative;
   }
 
@@ -253,14 +255,15 @@ body {
   }
 
   .btn {
+    margin-bottom: 5%;
     display: block;
     width: 100%;
     padding: 12px;
-    background-color: #4a6cf7;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-size: 16px;
+    font-family: 'Bebas Neue';
+    background-color: #c6ff2a;
+    color: rgb(0, 0, 0);
+    border-radius: 8px;
+    font-size: 20px;
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s;
