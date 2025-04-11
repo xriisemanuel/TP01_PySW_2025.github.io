@@ -1,0 +1,564 @@
+.main-content {
+  grid-area: main;
+  border-radius: 8px;
+}
+.header {
+  /* padding: 1rem; */
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;   
+}
+
+/* Estilos generales y reset */
+.hero {
+  position: relative;
+  height: 50vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 1%;
+}
+video {
+  border-radius: 0.7%;
+}
+.hero video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: -1;
+}
+
+.hero-content {
+  max-width: 100%;
+  color: #afb85e;
+  padding: 0 20px;
+  animation: fadeIn 1.5s ease-in-out;
+  font-family: 'Bebas Neue';
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: slideUp 1.2s ease-out;
+}
+
+.hero-content p {
+  font-size: 1.3rem;
+  margin-bottom: 3px;
+  animation: slideUp 1.2s ease-out 0.3s both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ====== SECCIÓN CARDS ====== */
+.cards-container {
+  
+  display:grid ;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 10px;
+  max-width: 100%;
+  padding: 0px;
+  margin-top: 1%;
+  border-radius: 8px;
+  box-shadow: 8px 8px 8px rgba(140, 150, 10, 0.651);
+  font-family: 'Bebas Neue';
+  font-size: 1.4rem;
+
+}
+
+.card {
+  background-color: rgba(57, 18, 66, 0.247);
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 100%;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(232, 255, 20, 0.925);
+}
+
+.card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.card:hover img {
+  transform: scale(1.05);
+}
+
+.card h3 {
+  padding: 20px 20px 10px;
+  font-size: 1.5rem;
+  color: #222;
+}
+
+.card p {
+  padding: 0 20px 20px;
+  color: #666;
+}
+
+.card button {
+  margin: 0 20px 20px;
+  padding: 10px 25px;
+  background-color: #e8ff1d;
+  color: rgb(20, 20, 20);
+  border: rgb(248, 247, 247);
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  font-family: 'Bebas Neue';
+  font-size: 120%;
+}
+
+.card button:hover {
+  background-color: #E64A19;
+}
+
+/* ====== CONTADOR SECTION ====== */
+.contador-section {
+  background-color: #1D1D1D;
+  padding: 20px 4px;
+  text-align: center;
+  margin-top: 20px;
+  border-radius: 8px;
+  box-shadow: #8ea737 0px 0px 15px 0px;
+}
+
+/* Texto del contador*/
+.contador {
+  font-size: 3.5rem;
+  font-weight: 'bold';
+  font-family: 'Bebas Neue';
+  color: #e8ff1d;
+}
+
+/*Numero de contador*/
+.numero {
+  font-size: 3rem;
+  color: #e8ff1d;
+  display: inline-block;
+  animation: countUp 20s forwards ease-out;
+}
+
+/* Texto 'Socios satisfechos' */
+.contador p {
+  font-size: 2.5rem;
+  color: #607721;
+}
+
+@keyframes countUp {
+  from {
+    content: "50";
+  }
+
+  to {
+    content: attr(data-valor);
+  }
+}
+
+/* Animación del contador usando pseudo-elementos */
+.numero {
+  position: relative;
+}
+
+.numero::after {
+  content: "0";
+  animation: counter 10s linear forwards;
+  counter-reset: num var(--num);
+}
+
+@keyframes counter {
+  0% {
+    content: "0";
+  }
+  10% {
+    content: "101";
+  }
+
+  20% {
+    content: "124";
+  }
+
+  30% {
+    content: "155";
+  }
+
+  40% {
+    content: "188";
+  }
+
+  50% {
+    content: "199";
+  }
+  60% {
+    content: "208";
+  }
+
+  70% {
+    content: "222";
+  }
+
+  80% {
+    content: "247";
+  }
+
+  90% {
+    content: "278";
+  }
+
+  100% {
+    content: "289";
+  }
+}
+
+.carrusel {
+  max-width: 1200px;
+  /* Limita el tamaño máximo del carrusel */
+  margin: 0 auto;
+  /* Centra el carrusel en la página */
+  padding: 0 0px;
+  /* Espaciado interno del carrusel */
+  position: relative;
+}
+
+.carrusel input[type="radio"] {
+  display: none;
+  /* Oculta los radio buttons */
+}
+
+.slides {
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: #1D1D1D;
+  box-shadow: 0 5px 10px rgba(236, 228, 228, 0.1);
+  margin-top: 10px;
+  /* Ajusta el tamaño de la caja */
+  width: 100%;
+  /* El ancho se ajusta al 100% del contenedor padre */
+  max-width: 1200px;
+  /* Limita el tamaño máximo de la caja */
+  height: 200px;
+  /* Establece una altura fija para la sección */
+
+  /* Ajustes de espaciado interno */
+  padding: 0px;
+
+  /* Centrado horizontal */
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 8px;
+  box-shadow: 0 0px 7px rgba(232, 255, 20, 0.925);
+}
+
+/* Agregar responsividad */
+@media (max-width: 768px) {
+  .slides {
+    width: 100%;
+    /* Ocupa todo el ancho en pantallas pequeñas */
+    height: 350px;
+    /* Reducir la altura en pantallas pequeñas */
+    padding: 10px;
+    /* Reducir padding para pantallas pequeñas */
+  }
+}
+
+.slide {
+  width: 100%;
+  padding: 25px;
+  text-align: center;
+  display: none;
+  transition: transform 0.5s ease;
+  color: white;
+}
+
+/* Control de visibilidad de slides */
+#slide1:checked~.slides #s1,
+#slide2:checked~.slides #s2,
+#slide3:checked~.slides #s3 {
+  display: block;
+  animation: fadeSlide 0.8s ease;
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide blockquote {
+  font-size: 1.8rem;
+  font-style: italic;
+  margin-bottom: 20px;
+  color: #fcf8f8;
+}
+
+.slide p {
+  font-size: 1.2rem;
+  color: #ffefef;
+  margin-bottom: 20px;
+}
+
+.comentario {
+  display: flex;
+  justify-content: space-between;
+  max-width: 200px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.prev,
+.next {
+  padding: 10px 15px;
+  background-color: #e8ff1d;
+  color: rgb(0, 0, 0);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: #E64A19;
+  transform: scale(1.1);
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-content p {
+    font-size: 1.1rem;
+  }
+
+  .cards-container {
+    grid-template-columns: 1fr;
+  }
+
+  .contador {
+    font-size: 2rem;
+  }
+
+  .numero {
+    font-size: 3rem;
+  }
+
+  .slide blockquote {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .slide {
+    padding: 20px;
+  }
+
+  .slide blockquote {
+    font-size: 1.2rem;
+  }
+}
+
+/* ====== SECCIÓN CLASES DESTACADAS ====== */
+.featured-classes-title {
+  background-color: rgba(28, 29, 26, 0.993);
+  color: #8ea737;  /* Color de texto blanco */
+  padding: 2rem;  /* Espaciado interno */
+  text-align: center;  /* Centrado del texto */
+  border-radius: 10px;  /* Bordes redondeados */
+  font-family: 'Bebas Neue';  /* Fuente moderna */
+   /* Separación con otros elementos */
+}
+
+.featured-classes-title h2 {
+  font-size: 2.5rem;  /* Tamaño grande para el título */
+  font-weight: bold;  /* Fuente en negrita */
+  text-transform: uppercase;  /* Texto en mayúsculas */
+  letter-spacing: 2px;  /* Espaciado entre letras */
+}
+
+
+.copyright {
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #555;
+  font-size: 0.9rem;
+}
+
+/* Media queries para responsividad */
+@media (max-width: 1200px) {
+
+  .header,
+  .main-content,
+  .footer {
+    grid-column: 2 / 12;
+    /* Ajuste para pantallas más pequeñas */
+  }
+}
+
+@media (max-width: 768px) {
+
+  .header,
+  .main-content,
+  .footer {
+    grid-column: 1 / 13;
+    /* Ocupa todo el ancho en dispositivos móviles */
+    padding: 15px;
+  }
+
+  .header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nav {
+    margin-top: 15px;
+    justify-content: center;
+  }
+
+  .menu {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .menu li {
+    margin: 5px 10px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+  }
+
+  .footer-section {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+}
+
+
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background-color: #222;
+    display: none;
+    z-index: 999;
+  }
+
+  nav.active {
+    display: block;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  .nav-list li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-list li a {
+    display: block;
+    padding: 15px;
+    border-top: 1px solid #444;
+  }
+
+  .has-submenu .mega-menu {
+    display: none;
+    flex-direction: column;
+    background-color: #333;
+    border-top: 1px solid #444;
+  }
+
+  .has-submenu.active .mega-menu {
+    display: flex;
+  }
+
+  .mega-menu li a {
+    padding: 10px;
+  }
+}
+.header {
+  /* padding: 1rem; */
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;    
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+

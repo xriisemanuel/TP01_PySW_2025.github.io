@@ -1,0 +1,174 @@
+.footer {
+  grid-area: footer;
+  border-radius: 8px;
+  background-color: #1D1D1D;
+  font-family: 'Bebas Neue';
+  text-align: center;
+  padding: 1px 0;
+  color: #fab81e;
+  padding-top: 15px;
+  box-shadow: #e5ff1e 0px 0px 15px 0px;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0px;
+  margin: 0 auto;
+  padding: 20px;
+  
+}
+
+/* Mapa */
+.mapa {
+  grid-column: 1 / -1;
+  margin-bottom: 40px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
+}
+
+.mapa h3 {
+  margin: 3px;
+  font-size: 1.8rem;
+}
+
+.mapa iframe {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* Newsletter */
+.newsletter {
+  grid-column: 1 / 2;
+}
+
+.newsletter h3 {
+  margin-bottom: 15px;
+  font-size: 2.2rem;
+}
+
+.newsletter form {
+  display: flex;
+  max-width: 100%;
+}
+
+.newsletter input[type="email"] {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 4px 0 0 4px;
+  font-size: 1.2rem;
+  font-family: 'Bebas Neue';
+}
+
+.newsletter button {
+  padding: 20px 25px;
+  background-color: #e5ff1e;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-family: 'bebas Neue';
+  font-size: large;
+}
+
+.newsletter button:hover {
+  background-color: #fab81e;
+}
+
+/* Secciones del footer */
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.footer-section h3 {
+  margin-bottom: 15px;
+  font-size: 2.2rem;
+}
+
+.footer-section p {
+  margin-bottom: 8px;
+  color: #ccc;
+  font-size: 1.3rem;
+}
+
+/* Iconos sociales */
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: #fbff0d;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  background-color: #292318a8;
+  transform: translateY(-3px);
+}
+
+.social-icons i {
+  font-size: 1.2rem;
+}
+
+/* Copyright */
+.footer-bottom {
+  text-align: center;
+  padding-top: 30px;
+  margin-top: 30px;
+  border-top: 1px solid #444;
+  color: #aaa;
+  font-size: 0.9rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .newsletter {
+    grid-column: 1;
+  }
+
+  .newsletter form {
+    flex-direction: column;
+  }
+
+  .newsletter input[type="email"] {
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+
+  .newsletter button {
+    border-radius: 4px;
+    width: 100%;
+  }
+
+  .mapa iframe {
+    height: 200px;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+}

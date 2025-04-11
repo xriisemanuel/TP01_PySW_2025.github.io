@@ -1,0 +1,259 @@
+/* Contenedor principal con Grid */
+body {
+  background-color: black;
+}
+
+/* ========== ESTRUCTURA GENERAL GRID ========== */
+.container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "header header header header header header header header header header header header"
+    "main main main main main main main main main main main main"
+    "footer footer footer footer footer footer footer footer footer footer footer footer";
+  min-height: 100vh;
+  max-width: 1200px;
+  /* Ancho máximo para el contenedor */
+  margin: 0 auto;
+  /* Esto centra el contenedor */
+  padding: 0 20px;
+  /* Espacio en los laterales para pantallas pequeñas */
+  align-items: center;
+}
+
+/* Header, Main y Footer ocupando 8/12 columnas y centrados */
+/* Estructura general */
+.header,
+.main-content,
+.footer {
+  grid-column: 3 / 11;
+  padding: 1px;
+}
+
+.header {
+  grid-area: header;
+  background-color: #1D1D1D; /* Verde oliva */
+  display: block;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: 0 3px 15px rgb(112, 143, 27);
+  width: 100%;
+  
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  padding: 0 15px;
+  width: 100%;
+}
+nav {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+nav ul {
+  font-family: 'Bebas Neue', sans-serif;
+  list-style: none;
+  display: flex;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  position: relative;
+}
+
+nav ul li a {
+  color: rgb(214, 241, 58);
+  text-decoration: none;
+  padding: 20px;
+  display: block;
+  transition: background 0.3s;
+  font-size: 1.5rem;
+  border-radius: 4%;
+}
+
+nav ul li:hover>a {
+  background-color: #3b352c;
+  
+}
+
+/* Mega-menú */
+.mega-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 1%;
+  background-color: #1D1D1D;
+  padding: 5px;
+  text-align: center;
+  border-radius: 0 10px 10px 8px;
+  min-width: 200px;
+  display: none;
+  box-shadow: 0 5px 15px rgb(65, 78, 17);
+}
+
+.mega-menu ul {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.mega-menu a {
+  color: #d8e69c;
+  background-color: #282c20;
+  padding: 1px 1px;
+  border-radius: 6px;
+  margin: 2%;
+}
+
+.mega-menu a:hover {
+  background-color: #344711;
+  margin: 2%;
+}
+
+nav ul li:hover .mega-menu {
+  display: block;
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+  .logo {
+    font-size: 1.5rem;
+    /* Logo más pequeño en pantallas pequeñas */
+  }
+
+  nav ul {
+    display: none;
+    /* Ocultamos el menú de navegación por defecto */
+    gap: 20px;
+    flex-direction: column;
+    /* Convertimos los items en una columna */
+    width: 100%;
+    text-align: center;
+  }
+
+  nav ul li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+  }
+
+  /* Mostrar el mega-menú solo al hacer clic en el elemento correspondiente en móviles */
+  nav ul li .mega-menu {
+    display: none;
+    /* Ocultar por defecto */
+  }
+
+  nav ul li.active .mega-menu {
+    display: block;
+  }
+
+  /* Mostrar el ícono de menú hamburguesa en pantallas pequeñas */
+  .menu-toggle {
+    display: block;
+    cursor: pointer;
+    font-size: 2rem;
+    color: rgb(62, 65, 48);
+    margin-right: 10px;
+  }
+
+  /* Mostrar el menú al hacer clic */
+  nav.active ul {
+    display: block;
+    /* Mostrar el menú cuando la clase 'active' se añade */
+  }
+
+  nav.active ul li {
+    width: 100%;
+    padding: 10px;
+  }
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo-link img {
+  height: 50px; /* Tamaño pequeño */
+  width: auto;
+  margin-right: 8px;
+  border-radius: 60%;
+}
+
+.logo-link span {
+  font-weight: bold;
+  color: #c0e02f; /* Cambia según el fondo de tu header */
+  font-size: 2.5rem; /* Tamaño de fuente más pequeño */
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    cursor: pointer;
+    font-size: 2rem;
+    color: white;
+    margin-right: 10px;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #333;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    z-index: 999;
+  }
+
+  nav.active ul {
+    display: flex;
+  }
+
+  nav ul li {
+    width: 100%;
+    text-align: center;
+  }
+
+  nav ul li .mega-menu {
+    display: none;
+  }
+
+  nav ul li.active .mega-menu {
+    display: block;
+  }
+
+  .mega-menu {
+    position: relative;
+    top: 0;
+    left: 0;
+    box-shadow: none;
+    border-radius: 0;
+    background-color: #222;
+    padding: 10px 0;
+  }
+}

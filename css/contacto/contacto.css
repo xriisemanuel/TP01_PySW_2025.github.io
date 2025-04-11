@@ -1,0 +1,347 @@
+.header {
+    /* padding: 1rem; */
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;    
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+/* Estilos generales del contenedor */
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 15px;
+    background-color: #1a1a19;
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+/* Título principal */
+.container h1 {
+    color: #eefd1b;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.container h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: #eaff60;
+    border-radius: 3px;
+}
+
+/* Grid para los campos del formulario */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Ajuste para pantallas pequeñas */
+@media (max-width: 768px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Grupo de campos */
+.form-group {
+    margin-bottom: 0.5rem;
+}
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+/* Etiquetas */
+label {
+    display: block;
+    margin-bottom: 0.8rem;
+    color: #f8f81d;
+    font-weight: 500;
+    font-size: 1.95rem;
+}
+
+/* Campos de texto e inputs */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+    width: 95%;
+    padding: 0.8rem;
+    border: 1px solid #e4f217;
+    border-radius: 19px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: #181717;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #42f2f8;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+    background-color: #7e7c14;
+}
+
+textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+/* Checkbox personalizado */
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-top: 0.15rem;
+    accent-color: #9cd4fa;
+    width: 18px;
+    height: 18px;
+}
+
+.checkbox-group label {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* Mensajes de validación */
+.validation-message {
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+    min-height: 1.2em;
+}
+
+.valid-message {
+    color: #27ae60;
+    display: none;
+}
+
+.invalid-message {
+    color: #e74c3c;
+    display: none;
+}
+
+input:valid:not(:placeholder-shown) ~ .validation-message .valid-message,
+textarea:valid:not(:placeholder-shown) ~ .validation-message .valid-message {
+    display: inline-block;
+}
+
+input:invalid:not(:placeholder-shown) ~ .validation-message .invalid-message,
+textarea:invalid:not(:placeholder-shown) ~ .validation-message .invalid-message {
+    display: inline-block;
+}
+
+input:invalid:not(:placeholder-shown),
+textarea:invalid:not(:placeholder-shown) {
+    border-color: #e74c3c;
+}
+
+input:valid:not(:placeholder-shown),
+textarea:valid:not(:placeholder-shown) {
+    border-color: #27ae60;
+}
+
+/* Contenedor de botones */
+.button-container {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+/* Botón de envío */
+.submit-btn {
+    background-color: #2e350f;
+    color: rgb(238, 241, 31);
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    min-width: 180px;
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(251, 255, 32, 0.842);
+}
+
+.submit-btn:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(52, 152, 219, 0.4);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+/* Spinner para el botón */
+.spinner {
+    display: none;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* Estilos para el modal de confirmación */
+.modal {
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    transition: all 0.3s ease;
+}
+
+.modal:target {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: white;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transform: scale(0.8);
+    transition: all 0.3s ease;
+}
+
+.modal:target .modal-content {
+    transform: scale(1);
+}
+
+.modal-header {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-bottom: 1px solid #eee;
+    position: relative;
+}
+
+.modal-header h2 {
+    margin: 0;
+    color: #2c3e50;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.close-btn {
+    position: absolute;
+    right: 1.5rem;
+    top: 1.5rem;
+    text-decoration: none;
+    color: #aaa;
+    font-size: 1.5rem;
+    line-height: 1;
+    transition: all 0.2s ease;
+}
+
+.close-btn:hover {
+    color: #555;
+}
+
+.modal-body {
+    padding: 2rem;
+    text-align: center;
+}
+
+.success-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    background-color: #27ae60;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+}
+
+.modal-body p {
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.modal-footer {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-top: 1px solid #eee;
+    text-align: center;
+}
+
+.btn-cerrar {
+    display: inline-block;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    padding: 0.7rem 2rem;
+    border-radius: 30px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-cerrar:hover {
+    background-color: #2980b9;
+}
+
+/* Estilos placeholder */
+::placeholder {
+    color: #aaa;
+    opacity: 1;
+}
+
+/* Para campos requeridos */
+label[for]::after {
+    content: attr(for);
+    font: 0/0 a;
+}
+
+label[for*="nombre"]::after,
+label[for*="email"]::after,
+label[for*="asunto"]::after,
+label[for*="mensaje"]::after {
+    content: " *";
+    color: #e74c3c;
+    font-size: 1rem;
+}

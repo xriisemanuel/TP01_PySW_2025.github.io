@@ -1,0 +1,278 @@
+.header {
+  /* padding: 1rem; */
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;    
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  /* background-color: black; */
+  font-family: 'Bebas Neue';
+}
+  .main-content {
+    background-color: #2f360c; /* Verde oliva */
+    grid-area: main;
+    font-family: 'Bebas Neue';
+    border-radius: 8px;
+    /* max-width: 1200px; */
+    margin: 0 auto;     /* centrado automático */
+    width: 100%;
+  }
+
+  header{
+    width: 100%;
+  }
+
+  /* .footer {
+    background-color: black;
+    width: 100%;
+  } */
+
+  .pricing-header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .pricing-header h1 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 15px;
+  }
+
+  .pricing-header p {
+    font-size: 18px;
+    color: #666;
+  }
+
+  /* Toggle de plan */
+  .toggle-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+
+  .toggle-label {
+    font-size: 18px;
+    margin: 0 15px;
+    color: #666;
+  }
+
+  .toggle {
+    position: relative;
+    display: inline-block;
+  }
+
+  .toggle input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .toggle-slider {
+    display: block;
+    width: 70px;
+    height: 36px;
+    background-color: #62d1f3;
+    border-radius: 18px;
+    position: relative;
+    transition: background-color 0.3s;
+    cursor: pointer;
+  }
+
+  .toggle-slider:before {
+    content: "";
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.3s;
+  }
+
+  .toggle input:checked+.toggle-slider {
+    background-color: #4a6cf7;
+  }
+
+  .toggle input:checked+.toggle-slider:before {
+    transform: translateX(34px);
+  }
+
+  .annual-badge {
+    background-color: #ffecb3;
+    color: #9c6500;
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  /* Tarjetas de planes */
+  .pricing-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    /* Limita el ancho máximo de las tarjetas */
+    margin: 0 auto;
+    /* Centra las tarjetas dentro del contenedor */
+  }
+
+  .pricing-card {
+    color: #fffb01;
+    border: 1px solid #fffb0a;
+    background-color: rgb(82, 109, 29);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .pricing-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgb(226, 250, 6);
+  }
+
+  .pricing-card--featured {
+    border: 2px solid #4a6cf7;
+    position: relative;
+  }
+
+  .featured-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #b6be66;
+    color: rgb(255, 22, 41);
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .card-header {
+    background-color: #c3d149;
+    padding: 30px 20px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .card-header h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  .price-container {
+    height: 60px;
+    position: relative;
+    margin-bottom: 15px;
+  }
+
+  .price {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .price span {
+    font-size: 16px;
+    font-weight: normal;
+    color: #666;
+  }
+
+  /* Inicializamos los estados (el JavaScript se encargará de cambiarlos) */
+  .price--monthly {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+  }
+
+  .price--annual {
+    opacity: 0;
+    transform: translateY(10px);
+    visibility: hidden;
+  }
+
+  .card-body {
+    padding: 30px 20px;
+  }
+
+  .features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px 0;
+  }
+
+  .features-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    color: #333;
+  }
+
+  .features-list li:before {
+    content: "✓";
+    color: #4a6cf7;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+
+  .feature-tooltip {
+    display: inline-block;
+    margin-left: 5px;
+    color: #666;
+    cursor: help;
+    position: relative;
+  }
+
+  .feature-tooltip:hover:after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #333;
+    color: white;
+    font-size: 14px;
+    z-index: 10;
+  }
+
+  .btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #4a6cf7;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .btn:hover {
+    background-color: #3a5bd9;
+  }
+
+  /* Media queries */
+  @media (max-width: 768px) {
+    .pricing-cards {
+      grid-template-columns: 1fr;
+    }
+  }
